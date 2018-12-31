@@ -1,0 +1,68 @@
+<div class="row  border-bottom white-bg dashboard-header">
+   <div class="row>
+      <div class="input-group">	
+      <form ng-submit="searchQuery()">	
+      <input type="text" ng-model="searchText" placeholder="Search for something" class="input-sm form-control">	
+      </form>	
+   </div>
+   <div class="row">
+      <div class="col-lg-8">
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+               <h5>WorldWide</h5>
+               
+            </div>
+            <div class="ibox-content">
+               <div class="feed-activity-list">
+                  <div class="feed-element" ng-repeat="latestJobPost in latestJobPost">
+                     <div>
+
+                        <a href="#!/app/project_detail?id={{latestJobPost.Id}}"><strong>{{latestJobPost.Title}}</strong></a>
+                        
+                        <div><img widht="20" height="15" src="img/marker.png"></img>     {{latestJobPost.Location[0].formatted_address}}</div>
+                        <div><strong>Price:</strong> {{latestJobPost.JobPostPrice}}</div>
+                        <div>{{latestJobPost.Description}}</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-4">
+       <div class="widget lazur-bg">
+
+            <img width="300" height="200" src="{{advertDashboard.logoLink}}"></img><br>
+
+            <h2>
+                {{advertDashboard.title}}
+            </h2>
+            <ul class="list-unstyled m-t-md">
+                <li>
+                    <span class="fa fa-envelope m-r-xs"></span>
+                    <label>Email:</label>
+                    {{advertDashboard.Email}}
+                </li>
+                <li>
+                    <span class="fa fa-home m-r-xs"></span>
+                    <label>Address:</label>
+                    {{advertDashboard.Address}}
+                </li>
+                <li>
+                    <span class="fa fa-phone m-r-xs"></span>
+                    <label>Contact:</label>
+                    {{advertDashboard.Contact}}
+                </li>
+            </ul>
+
+        </div>
+        <div ng-click="addWebsite()" class="widget red-bg p-lg text-center">
+            <div class="m-b-md">
+                <i class="fa fa-plus fa-4x"></i>
+                <h3 class="font-bold no-margins">
+                   	Add Your Website
+                </h3>
+            </div>
+        </div>
+    </div>
+   </div>
+</div>
